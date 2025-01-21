@@ -35,8 +35,10 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
     - run: mvn --batch-mode --update-snapshots -f ./gs-maven/pom.xml verify package
-    - run: mkdir staging && cp target/*.jar staging
+    - run: mkdir staging && cp ./gs-maven/target/*.jar staging
     - uses: actions/upload-artifact@v3
       with:
         name: Package
         path: staging
+
+        
